@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SYS_ADMIN_PORTAL_2026</title>
+    <style>
+        /* Terminal Aesthetic */
+        @import url('fonts.googleapis.com');
+
+        body {
+            background-color: #0d0208;
+            color: #00ff41; /* Classic Matrix Green */
+            font-family: 'Fira Code', monospace;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 95vh;
+        }
+
+        header { border-bottom: 2px solid #00ff41; padding-bottom: 10px; margin-bottom: 20px; }
+        
+        .status-bar { display: flex; justify-content: space-between; font-size: 0.8rem; background: #1a1a1a; padding: 5px 15px; }
+
+        main { flex: 1; border: 1px solid #333; padding: 20px; position: relative; overflow: hidden; }
+
+        /* The "Heavy" Glow Effect */
+        .glitch {
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: relative;
+            text-shadow: 0 0 10px #00ff41;
+            animation: pulse 2s infinite;
+        }
+
+        .terminal-output { color: #888; font-size: 0.9rem; margin-top: 20px; }
+
+        /* Progress Bar Styling */
+        progress { width: 100%; height: 20px; accent-color: #00ff41; }
+
+        /* Table for Cluster Stats */
+        table { width: 100%; margin-top: 20px; border-collapse: collapse; font-size: 0.8rem; }
+        th { text-align: left; color: gold; border-bottom: 1px solid #444; }
+
+        footer { margin-top: auto; text-align: center; font-size: 0.7rem; opacity: 0.5; }
+
+        @keyframes pulse {
+            0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; }
+        }
+
+        kbd { background: #333; padding: 2px 4px; border-radius: 3px; color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="status-bar">
+        <span>HOST: EARTH_SRV_2026</span>
+        <span>UPTIME: 365 DAYS (EST)</span>
+        <span>LATENCY: 0ms</span>
+        <span>USER: ROOT@ENGINEER</span>
+    </div>
+
+    <header>
+        <h1 class="glitch">Executing: Happy_New_Year.sh</h1>
+    </header>
+
+    <main>
+        <section>
+            <code>[SYSTEM] Initializing 2026 Core Modules...</code><br>
+            <code>[NETWORK] Connecting to Future Gateways... <span style="color:white">DONE</span></code><br>
+            <code>[SECURITY] Firewalling 2025 Stressors... <span style="color:white">SUCCESS</span></code>
+        </section>
+
+        <section style="margin-top:40px; text-align: center;">
+            <label>BOOTING YEAR 2026:</label><br>
+            <progress id="boot-load" value="0" max="100"></progress>
+            <div id="countdown" style="font-size: 2rem; color: gold; margin-top:10px;">T-MINUS: 00:00:00</div>
+        </section>
+
+        <section>
+            <table>
+                <caption>RESOURCE ALLOCATION FOR 2026</caption>
+                <thead>
+                    <tr><th>MODULE</th><th>ALLOCATION</th><th>HEALTH</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Happiness.so</td><td><meter value="0.95">95%</meter></td><td>OPTIMAL</td></tr>
+                    <tr><td>Success.bin</td><td><meter value="1.0" min="0" max="1">100%</meter></td><td>SCALING</td></tr>
+                    <tr><td>Sleep_Schedule.sys</td><td><meter value="0.3" low="0.4">30%</meter></td><td>CRITICAL</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <aside class="terminal-output">
+            <samp>root@sarbeswar> sudo apt-get install joy-and-prosperity-2026</samp><br>
+            <samp>root@sarbeswar> Setting up environment variables... <var>$PEACE</var>=TRUE</samp>
+        </aside>
+    </main>
+
+    <footer>
+        <address>Root Directory: /home/universe/2026</address>
+        <p>Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop worrying. (C) 2026 System Services.</p>
+    </footer>
+
+    <script>
+        // Real-Time Countdown for Engineers
+        const deadline = new Date("Jan 1, 2026 00:00:00").getTime();
+        
+        function runSystem() {
+            const now = new Date().getTime();
+            const diff = deadline - now;
+
+            // Update Progress Bar based on time left in the year
+            const yearStart = new Date("Jan 1, 2025 00:00:00").getTime();
+            const totalYear = deadline - yearStart;
+            const elapsed = now - yearStart;
+            document.getElementById('boot-load').value = (elapsed / totalYear) * 100;
+
+            // Standard Countdown
+            const d = Math.floor(diff/(1000*60*60*24));
+            const h = Math.floor((diff/(1000*60*60))%24);
+            const m = Math.floor((diff/1000/60)%60);
+            const s = Math.floor((diff/1000)%60);
+
+            document.getElementById('countdown').innerText = `T-MINUS: ${d}d ${h}h ${m}m ${s}s`;
+
+            if (diff < 0) {
+                document.querySelector('main').innerHTML = "<h1 style='font-size:5rem; color:gold'>SYSTEM ONLINE: 2026</h1>";
+            }
+        }
+
+        setInterval(runSystem, 1000);
+    </script>
+</body>
+</html>
