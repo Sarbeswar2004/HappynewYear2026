@@ -125,12 +125,13 @@
 
             document.getElementById('countdown').innerText = `T-MINUS: ${d}d ${h}h ${m}m ${s}s`;
 
-            if (diff < 0) {
-                document.querySelector('main').innerHTML = "<h1 style='font-size:5rem; color:gold'>SYSTEM ONLINE: 2026</h1>";
-            }
+            #if (diff < 0) {
+            #    document.querySelector('main').innerHTML = "<h1 style='font-size:5rem; color:gold'>SYSTEM ONLINE: 2026</h1>";
+            #}
         }
 
         setInterval(runSystem, 1000);
     </script>
 </body>
 </html>
+
