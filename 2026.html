@@ -123,16 +123,21 @@
             // const m = Math.floor((diff/1000/60)%60);
             // const s = Math.floor((diff/1000)%60);
 
-            document.getElementById('countdown').innerText = `Time : ${now}now`;
+            #document.getElementById('countdown').innerText = `Time : ${now}now`;
 
             #if (diff < 0) {
             #    document.querySelector('main').innerHTML = "<h1 style='font-size:5rem; color:gold'>SYSTEM ONLINE: 2026</h1>";
             #}
+            const currentDateTime = new Date().toLocaleString();
+
+document.getElementById('countdown').innerText = `Time : ${currentDateTime}`;
+
         }
 
         setInterval(runSystem, 1000);
     </script>
 </body>
 </html>
+
 
 
